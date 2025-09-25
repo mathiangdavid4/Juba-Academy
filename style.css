@@ -1,28 +1,130 @@
-/* --- Continuous 3D Float --- */
-@keyframes floatCard {
-  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-  25% { transform: translateY(-4px) rotateX(2deg) rotateY(1deg); }
-  50% { transform: translateY(-2px) rotateX(1deg) rotateY(-1deg); }
-  75% { transform: translateY(-4px) rotateX(-1deg) rotateY(2deg); }
-  100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+/* --- Body & Perspective --- */
+body {
+    perspective: 1500px;
+    background: linear-gradient(135deg, #f0f4f8, #e0f7fa);
+    font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
+    color: #111827;
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.card {
-  animation: floatCard 6s ease-in-out infinite;
-  transform-style: preserve-3d;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar a {
-  animation: floatCard 4s ease-in-out infinite alternate;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    display: inline-block;
 }
+
+/* Hover & continuous floating animation */
+@keyframes floatNav {
+    0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg);}
+    25% { transform: translateY(-2px) rotateX(1deg) rotateY(1deg);}
+    50% { transform: translateY(0px) rotateX(0deg) rotateY(0deg);}
+    75% { transform: translateY(2px) rotateX(-1deg) rotateY(-1deg);}
+    100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg);}
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-6px) rotateX(3deg) rotateY(3deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    animation: floatNav 0.5s ease-in-out forwards;
+}
+
+/* --- Cards --- */
+.card {
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(145deg, #ffffff, #f0f4f8);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    transform-style: preserve-3d;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Card hover & 3D floating */
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg);}
+    25% { transform: translateY(-4px) rotateX(2deg) rotateY(1deg);}
+    50% { transform: translateY(-2px) rotateX(1deg) rotateY(-1deg);}
+    75% { transform: translateY(-4px) rotateX(-1deg) rotateY(2deg);}
+}
+
+.card:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateY(-8px) scale(1.05);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+}
+
+/* Glow effect on hover */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -8px; left: -8px; right: -8px; bottom: -8px;
+    border-radius: 1.25rem;
+    background: linear-gradient(45deg, rgba(255,255,255,0.25), rgba(0,255,255,0.1));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Card content */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.card-body, .card-list {
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.6;
+}
+.card-list li {
+    margin-bottom: 0.5rem;
+}
+.link {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.link:hover {
+    color: #1d4ed8;
+    text-shadow: 0 0 8px rgba(37,99,235,0.7);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* --- Particle Canvas --- */
 #bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  background: linear-gradient(135deg, #f0f4f8, #e0f7fa);
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(135deg, #f0f4f8, #e0f7fa);
 }
