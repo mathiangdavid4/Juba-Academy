@@ -1,97 +1,103 @@
+/* --- 3D Card & Navigation Effects --- */
+
+/* Body perspective for 3D hover effects */
 body {
-  padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
-  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
-  color: #111827;
+  perspective: 1200px;
+}
+
+/* 3D Cards */
+.card {
+  transform-style: preserve-3d; /* Enable 3D space */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* Rotate slightly on hover for 3D effect */
+.card:hover {
+  transform: rotateY(6deg) rotateX(3deg) translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #2563eb;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Navigation links */
+.navbar a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: inline-block;
+}
+
+/* Hover 3D effect on nav links */
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px) rotateX(3deg) rotateY(3deg) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Flowing animation for links (like a pulse) */
+@keyframes flow {
+  0% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-2px) rotateX(2deg); }
+  100% { transform: translateY(0) rotateX(0deg); }
+}
+
+.navbar a:hover {
+  animation: flow 0.5s ease-in-out forwards;
+}
+
+/* Optional: subtle card glow on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Keep your existing styles */
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.card-body {
+  font-size: 0.9rem;
+  color: #374151;
   line-height: 1.6;
 }
-
-h1 {
-  font-size: 20px;
-  margin-top: 0;
-  font-weight: 600;
-  color: #1f2937;
-  letter-spacing: 0.5px;
+.card-list {
+  list-style: disc;
+  margin-left: 1rem;
+  color: #374151;
+  font-size: 0.9rem;
 }
-
-p {
-  color: #6b7280;
-  font-size: 15px;
-  margin-bottom: 12px;
-  margin-top: 6px;
+.link {
+  color: #2563eb;
+  font-weight: 500;
+  transition: color 0.2s;
 }
-
-.card {
-  max-width: 620px;
-  margin: 0 auto;
-  padding: 24px;
-  border-radius: 20px;
-  background: #fff;
-  border: none;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
 }
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.card p:last-child {
-  margin-bottom: 0;
-}
-
-/* Add subtle animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: fadeIn 0.6s ease;
-}
-
-.card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-  }
-  .card-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-  }
-  .card-body {
-    font-size: 0.9rem;
-    color: #374151;
-    line-height: 1.6;
-  }
-  .card-list {
-    list-style: disc;
-    margin-left: 1rem;
-    color: #374151;
-    font-size: 0.9rem;
-  }
-  .link {
-    color: #2563eb;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .link:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-  }
