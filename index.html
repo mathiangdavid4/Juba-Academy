@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juba Academy - Quality Secondary Education</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 87, 146, 0.9) 0%, rgba(0, 146, 87, 0.9) 100%);
+        }
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto" src="https://huggingface.co/spaces/David2678/jubaacademy/resolve/main/images/Juba%20Academy%20Logo.svg" alt="Juba Academy Logo">
+                        <span class="ml-2 text-xl font-bold text-gray-800">Juba Academy</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="#programs" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Programs</a>
+                    <a href="#subjects" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Subjects</a>
+                    <a href="#NEWS & EVENTS" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">NEWS & EVENTS</a>
+
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                            Admissions
+                            <i data-feather="chevron-down" class="ml-1 h-4 w-4"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-1 py-1 w-48 z-50">
+                            <a href="#admission-form" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission Form</a>
+                            <a href="#admission-fees" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admission Fees</a>
+                            <a href="#uniform-fees" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Uniform Fees</a>
+                            <a href="#requirements" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Requirements</a>
+                            <a href="#banned-items" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Banned Items</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="bg-blue-50 text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="text-gray-600 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#programs" class="text-gray-600 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Programs</a>
+                <a href="#subjects" class="text-gray-600 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Subjects</a>
+                <a href="#contact" class="text-gray-600 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="hero" class="hero-bg text-white pt-24 pb-20 relative overflow-hidden">
+        <div id="vanta-bg" class="absolute inset-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl" data-aos="fade-right">
+                        <span class="block">Quality Education</span>
+                        <span class="block text-yellow-300">For Future Leaders</span>
+                    </h1>
+                    <p class="mt-3 text-base sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0" data-aos="fade-right" data-aos-delay="100">
+                        Juba Academy provides comprehensive secondary education from S1 to S4, preparing students for academic excellence and personal growth.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#contact" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-yellow-400 hover:bg-yellow-300 md:py-4 md:text-lg md:px-10 transition-all">
+                                Enquire Now
+                            </a>
+                            <a href="#programs" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-all">
+                                Our Programs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center" data-aos="fade-left">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <img class="w-full rounded-lg" src="http://static.photos/education/1024x576/2" alt="Students learning">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">About Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Juba Academy
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up">
+                    Providing quality education since 2013
+                </p>
+            </div>
+
+            <div class="mt-20">
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-blue-500 rounded-md shadow-lg">
+                                        <i data-feather="home" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Our Location</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Situated along the Nesitu-Nimule Highway, we provide a conducive learning environment with modern facilities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-blue-500 rounded-md shadow-lg">
+                                        <i data-feather="book" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Our Mission</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    To provide quality education that empowers students academically, socially, and morally for a better future.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-blue-500 rounded-md shadow-lg">
+                                        <i data-feather="users" class="h-6 w-6 text-white"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Our Community</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    We foster a supportive community where students, teachers, and parents work together for student success.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Our Programs</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Academic Structure
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up">
+                    Comprehensive education from S1 to S4
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    <div class="bg-white overflow-hidden shadow rounded-lg" data-aos="fade-right">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                    <i data-feather="book-open" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900">Lower Secondary (S1-S2)</h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    Our Lower Secondary program provides a strong foundation in core subjects while allowing students to explore their interests through electives.
+                                </p>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-medium text-gray-900">Core Subjects:</h4>
+                                    <ul class="mt-2 text-sm text-gray-500 grid grid-cols-2 gap-2">
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">English Language</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Mathematics</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">History & Political Ed.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Geography</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Physics</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Biology</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Chemistry</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Physical Education</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white overflow-hidden shadow rounded-lg" data-aos="fade-left">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                    <i data-feather="award" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900">Upper Secondary (S3-S4)</h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    Our Upper Secondary program prepares students for national examinations and future academic pursuits with specialized subject combinations.
+                                </p>
+                                <div class="mt-4">
+                                    <h4 class="text-sm font-medium text-gray-900">Core Subjects:</h4>
+                                    <ul class="mt-2 text-sm text-gray-500 grid grid-cols-2 gap-2">
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">English Language</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Mathematics</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">History & Political Ed.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Geography</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Biology/General Science</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Physics</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Chemistry</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="h-5 flex items-center sm:h-6">
+                                                <i data-feather="check" class="flex-shrink-0 h-4 w-4 text-green-500"></i>
+                                            </span>
+                                            <span class="ml-1">Religious Education</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Our Curriculum</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Subjects Offered
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up">
+                    Comprehensive academic and elective subjects
+                </p>
+            </div>
+
+            <div class="mt-12">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Core Subjects Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden subject-card transition-all" data-aos="fade-up" data-aos-delay="100">
+                        <div class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                    <i data-feather="bookmark" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Core Subjects</h3>
+                                    <p class="text-sm text-gray-500">Compulsory for all students</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">English Language</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Mathematics</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">History & Political Education</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Geography</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Physics</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Biology</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Chemistry</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Elective Subjects Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden subject-card transition-all" data-aos="fade-up" data-aos-delay="200">
+                        <div class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                    <i data-feather="list" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Elective Subjects</h3>
+                                    <p class="text-sm text-gray-500">Optional based on interest</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Fine Arts</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Performing Arts</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Literature in English</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Local Languages</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Foreign Languages</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Nutrition & Food Tech</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="star" class="flex-shrink-0 h-5 w-5 text-yellow-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Technology & Design</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Subjects Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden subject-card transition-all" data-aos="fade-up" data-aos-delay="300">
+                        <div class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                    <i data-feather="plus-circle" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Additional Subjects</h3>
+                                    <p class="text-sm text-gray-500">Complementary education</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="activity" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Physical Education</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="heart" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Religious Education</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="cpu" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">ICT</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="globe" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Kiswahili</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="briefcase" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Entrepreneurship</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="sun" class="flex-shrink-0 h-5 w-5 text-blue-500"></i>
+                                        <span class="ml-2 text-sm text-gray-700">Agriculture</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- News & Events Section -->
+<section id="news-events" class="py-16 bg-gradient-to-b from-blue-50 via-white to-blue-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center mb-12">
+      <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">News & Events</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+        Stay Updated in Real Time
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- School News -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="card-title">
+          <i data-feather="book-open" class="mr-2 h-5 w-5"></i> School News
+        </h3>
+        <div id="school-news" class="card-body">
+          Loading school news...
+        </div>
+      </div>
+
+      <!-- Weather -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="card-title">
+          <i data-feather="cloud" class="mr-2 h-5 w-5"></i> Weather
+        </h3>
+        <div id="weather-info" class="card-body">
+          Loading weather...
+        </div>
+      </div>
+
+      <!-- Scholarships -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="card-title">
+          <i data-feather="award" class="mr-2 h-5 w-5"></i> Scholarships & Opportunities
+        </h3>
+        <ul class="card-list">
+          <li><a href="https://ss.usembassy.gov/education-culture/" target="_blank" class="link">U.S. Embassy South Sudan – Education & Scholarships</a></li>
+          <li><a href="https://yali.state.gov/mwf/" target="_blank" class="link">Mandela Washington Fellowship</a></li>
+          <li><a href="https://africa.yale.edu/yale-young-african-scholars-yyas" target="_blank" class="link">Yale Young African Scholars (YYAS)</a></li>
+          <li><a href="https://comms.southsudanngoforum.org/c/tenders/8" target="_blank" class="link">NGO Forum – Tenders & Opportunities</a></li>
+          <li><a href="https://www.unesco.org/en/education/scholarships" target="_blank" class="link">UNESCO Scholarships</a></li>
+        </ul>
+      </div>
+
+      <!-- Announcements -->
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="card-title">
+          <i data-feather="volume-2" class="mr-2 h-5 w-5"></i> Announcements
+        </h3>
+        <div id="announcements" class="card-body">
+          Loading announcements...
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  .card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .card-body {
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .card-list {
+    list-style: disc;
+    margin-left: 1rem;
+    color: #374151;
+    font-size: 0.9rem;
+  }
+  .link {
+    color: #2563eb;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+</style>
+
+<!-- Scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    feather.replace();
+
+    // WEATHER FORECAST FOR JUBA
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=4.85&longitude=31.6&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&current_weather=true&timezone=Africa%2FJuba")
+      .then(res => res.json())
+      .then(data => {
+        let current = data.current_weather;
+        let daily = data.daily;
+
+        let html = `
+          <p><strong>Now:</strong> ${current.temperature}°C, Winds ${current.windspeed} km/h</p>
+          <p><strong>Today:</strong> High ${daily.temperature_2m_max[0]}°C / Low ${daily.temperature_2m_min[0]}°C</p>
+          <p><strong>Rainfall Today:</strong> ${daily.precipitation_sum[0]} mm</p>
+          <hr class="my-2">
+          <p><strong>3-Day Forecast:</strong></p>
+          <ul style="list-style:none;padding-left:0;">
+            <li>Tomorrow: ${daily.temperature_2m_max[1]}°C / ${daily.temperature_2m_min[1]}°C, Rain: ${daily.precipitation_sum[1]} mm</li>
+            <li>Day 2: ${daily.temperature_2m_max[2]}°C / ${daily.temperature_2m_min[2]}°C, Rain: ${daily.precipitation_sum[2]} mm</li>
+            <li>Day 3: ${daily.temperature_2m_max[3]}°C / ${daily.temperature_2m_min[3]}°C, Rain: ${daily.precipitation_sum[3]} mm</li>
+          </ul>
+        `;
+        document.getElementById("weather-info").innerHTML = html;
+      })
+      .catch(() => {
+        document.getElementById("weather-info").innerHTML = "Unable to fetch weather.";
+      });
+
+    // SCHOOL NEWS
+    const schoolNews = [
+      "Term 3 begins on October 2nd, 2025.",
+      "Science Fair: November 15th, 2025.",
+      "New library books available for borrowing."
+    ];
+    document.getElementById("school-news").innerHTML = schoolNews.map(n => `<p>📘 ${n}</p>`).join("");
+
+    // ANNOUNCEMENTS
+    const announcements = [
+      "Parent-teacher meeting: October 10th, 2025.",
+      "Sports Day on November 20th, 2025.",
+      "ICT lab renovation in progress."
+    ];
+    document.getElementById("announcements").innerHTML = announcements.map(a => `<p>📢 ${a}</p>`).join("");
+  });
+</script>
+
+
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Campus Life</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Our Gallery
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up">
+                    Moments from Juba Academy
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                        <img src="http://static.photos/education/640x360/3" alt="Classroom learning" class="h-full w-full object-cover object-center">
+                    </div>
+                    <h3 class="mt-6 text-sm text-gray-500">
+                        <span class="absolute inset-0"></span>
+                        Classroom Learning
+                    </h3>
+                </div>
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                        <img src="http://static.photos/education/640x360/4" alt="Science lab" class="h-full w-full object-cover object-center">
+                    </div>
+                    <h3 class="mt-6 text-sm text-gray-500">
+                        <span class="absolute inset-0"></span>
+                        Science Laboratory
+                    </h3>
+                </div>
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                        <img src="http://static.photos/education/640x360/5" alt="Sports activities" class="h-full w-full object-cover object-center">
+                    </div>
+                    <h3 class="mt-6 text-sm text-gray-500">
+                        <span class="absolute inset-0"></span>
+                        Sports Activities
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Admissions</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Admission Information
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+   <!-- Admission form download -->
+
+<div class="mt-8 bg-blue-50 p-6 rounded-xl shadow" id="admission-template-section">
+    <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+        <i data-feather="file" class="mr-2 h-5 w-5"></i>
+        Download Admission Forms
+    </h4>
+    <p class="mb-4 text-gray-600">Download the official Juba Academy admission form in PDF or Word format below.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+        <a href="images/juba academy admission.pdf" download class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">
+            <i data-feather="download" class="mr-2 h-4 w-4"></i>
+            Download PDF
+        </a>
+        <a href="images/juba academy admission.docx" download class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">
+            <i data-feather="download" class="mr-2 h-4 w-4"></i>
+            Download Word
+        </a>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+                <!-- Uniform Fees -->
+                <div id="uniform-fees" class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-2">
+                            <i data-feather="shopping-bag" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <h3 class="ml-3 text-lg font-medium text-gray-900">Uniform Fees</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">S1-S4 Uniform</span>
+                            <span class="font-medium">USD 100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requirements -->
+                <div id="requirements" class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-2">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <h3 class="ml-3 text-lg font-medium text-gray-900">School Requirements</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Medical Fees</span>
+                            <span class="font-medium">USD 30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Other Requirements</span>
+                            <span class="font-medium">USD 20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banned Items -->
+                <div id="banned-items" class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-2">
+                            <i data-feather="slash" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <h3 class="ml-3 text-lg font-medium text-gray-900">Banned Items</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-feather="x" class="flex-shrink-0 h-4 w-4 text-red-500 mt-1"></i>
+                            <span class="ml-2">Mobile Phones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="x" class="flex-shrink-0 h-4 w-4 text-red-500 mt-1"></i>
+                            <span class="ml-2">All electronics except laptops for computer students</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="x" class="flex-shrink-0 h-4 w-4 text-red-500 mt-1"></i>
+                            <span class="ml-2">All kinds of drugs and substances</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="x" class="flex-shrink-0 h-4 w-4 text-red-500 mt-1"></i>
+                            <span class="ml-2">All kinds of alcohol</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Get In Touch</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+                    Contact Us
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up">
+                    We'd love to hear from you
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+                <div data-aos="fade-right">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-medium text-gray-900">Contact Information</h3>
+                        <div class="mt-6 space-y-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="map-pin" class="h-6 w-6 text-blue-500"></i>
+                                </div>
+                                <div class="ml-3 text-base text-gray-500">
+                                    <p>Nesitu-Nimule Highway</p>
+                                    <p>Juba, South Sudan</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="phone" class="h-6 w-6 text-blue-500"></i>
+                                </div>
+                                <div class="ml-3 text-base text-gray-500">
+                                    <p>+211 927 607 613</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="mail" class="h-6 w-6 text-blue-500"></i>
+                                </div>
+                                <div class="ml-3 text-base text-gray-500">
+                                    <p>jubaacademy2013@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="facebook" class="h-6 w-6 text-blue-500"></i>
+                                </div>
+                                <div class="ml-3 text-base text-gray-500">
+                                    <a href="https://www.facebook.com/profile.php?id=100076513531334&sk=about" target="_blank" class="text-blue-600 hover:text-blue-800">Juba Academy on Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-medium text-gray-900">School Hours</h3>
+                        <div class="mt-4">
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">Monday - Friday</span>
+                                <span class="text-gray-900 font-medium">7:30 AM - 3:30 PM</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="text-gray-600">Saturday</span>
+                                <span class="text-gray-900 font-medium">8:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-600">Sunday</span>
+                                <span class="text-gray-900 font-medium">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-medium text-gray-900">Send Us a Message</h3>
+                        <form class="mt-6 space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <div class="mt-1">
+                                    <input type="text" id="name" name="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <div class="mt-1">
+                                    <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <div class="mt-1">
+                                    <input type="tel" id="phone" name="phone" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Juba Academy</h3>
+                    <p class="text-gray-300">
+                        Providing quality secondary education since 2013. Empowering students for academic excellence and personal growth.
+                    </p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=100076513531334&sk=about" target="_blank" class="text-gray-300 hover:text-white">
+                            <i data-feather="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i data-feather="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i data-feather="instagram" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="#programs" class="text-gray-300 hover:text-white">Programs</a></li>
+                        <li><a href="#subjects" class="text-gray-300 hover:text-white">Subjects</a></li>
+                        <li><a href="#admissions" class="text-gray-300 hover:text-white">Admissions</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <address class="not-italic text-gray-300">
+                        <p class="flex items-start">
+                            <i data-feather="map-pin" class="h-5 w-5 mr-2 mt-0.5"></i>
+                            <span>Nesitu-Nimule Highway<br>Juba, South Sudan</span>
+                        </p>
+                        <p class="mt-2 flex items-center">
+                            <i data-feather="phone" class="h-5 w-5 mr-2"></i>
+                            <span>+211 927 607 613</span>
+                        </p>
+                        <p class="mt-2 flex items-center">
+                            <i data-feather="mail" class="h-5 w-5 mr-2"></i>
+                            <span>jubaacademy2013@gmail.com</span>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <p class="text-gray-400 text-sm text-center">
+                    &copy; 2023 Juba Academy. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Vanta.js background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x005792,
+            size: 0.8
+        });
+
+        // Mobile menu toggle
+        document.querySelector('[aria-controls="mobile-menu"]').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Feather icons replacement
+        feather.replace();
+    </script>
+</body>
+</html>
