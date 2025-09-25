@@ -1,8 +1,40 @@
 {
     "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.port": 5500, 
+    "liveServer.settings.wait": 500,
+    
     "security.workspace.trust.untrustedFiles": "open",
     "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 800,
+
+    // Formatting
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    
+    // HTML settings
     "[html]": {
-        "editor.suggest.insertMode": "replace"
-    }
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // JavaScript & JSON settings
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // Emmet support
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "razor": "html"
+    },
+
+    // Prettier integration
+    "prettier.singleQuote": true,
+    "prettier.semi": false
 }
