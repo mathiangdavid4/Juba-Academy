@@ -1,103 +1,28 @@
-/* --- 3D Card & Navigation Effects --- */
-
-/* Body perspective for 3D hover effects */
-body {
-  perspective: 1200px;
+/* --- Continuous 3D Float --- */
+@keyframes floatCard {
+  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-4px) rotateX(2deg) rotateY(1deg); }
+  50% { transform: translateY(-2px) rotateX(1deg) rotateY(-1deg); }
+  75% { transform: translateY(-4px) rotateX(-1deg) rotateY(2deg); }
+  100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
 }
 
-/* 3D Cards */
 .card {
-  transform-style: preserve-3d; /* Enable 3D space */
+  animation: floatCard 6s ease-in-out infinite;
+  transform-style: preserve-3d;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
-  will-change: transform;
 }
 
-/* Rotate slightly on hover for 3D effect */
-.card:hover {
-  transform: rotateY(6deg) rotateX(3deg) translateY(-6px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
-}
-
-/* Navigation bar */
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: #2563eb;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
-
-/* Navigation links */
 .navbar a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  display: inline-block;
+  animation: floatCard 4s ease-in-out infinite alternate;
 }
-
-/* Hover 3D effect on nav links */
-.navbar a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px) rotateX(3deg) rotateY(3deg) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Flowing animation for links (like a pulse) */
-@keyframes flow {
-  0% { transform: translateY(0) rotateX(0deg); }
-  50% { transform: translateY(-2px) rotateX(2deg); }
-  100% { transform: translateY(0) rotateX(0deg); }
-}
-
-.navbar a:hover {
-  animation: flow 0.5s ease-in-out forwards;
-}
-
-/* Optional: subtle card glow on hover */
-.card::before {
-  content: "";
-  position: absolute;
-  top: -6px; left: -6px; right: -6px; bottom: -6px;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-.card:hover::before {
-  opacity: 1;
-}
-
-/* Keep your existing styles */
-.card-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-}
-.card-body {
-  font-size: 0.9rem;
-  color: #374151;
-  line-height: 1.6;
-}
-.card-list {
-  list-style: disc;
-  margin-left: 1rem;
-  color: #374151;
-  font-size: 0.9rem;
-}
-.link {
-  color: #2563eb;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.link:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
+  background: linear-gradient(135deg, #f0f4f8, #e0f7fa);
 }
